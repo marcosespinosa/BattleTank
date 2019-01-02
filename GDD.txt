@@ -1,0 +1,23 @@
+gdd (game design document)
+
+concept:
+
+You control a tank in a 3d space. You shoot at other tanks controlled by the AI while you avoid being hit by them.
+
+rules:
+
+You win the game by shooting at the other tanks and getting rid of their health before that happens to you.
+
+requirements:
+
+3d environment
+3d model for tank
+3d model for bullet
+particle effect for explosion + fire
+sfx for shooting
+sfx for moving
+sfx for taking a hit
+img for home menu
+buttons for home menu
+song for home menu
+sfx for hover on buttons in home menu
