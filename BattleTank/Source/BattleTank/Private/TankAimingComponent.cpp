@@ -18,7 +18,7 @@ UTankAimingComponent::UTankAimingComponent()
 	// off to improve performance if you don't need them.
 	PrimaryComponentTick.bCanEverTick = true;
 
-	static ConstructorHelpers::FClassFinder<AProjectile> Proj(TEXT("/Game/Tankv2/Projectile_BP"));
+	static ConstructorHelpers::FClassFinder<AProjectile> Proj(TEXT("/Game/Projectile/Projectile_BP"));
 	if (Proj.Class)
 	{
 		ProjectileBlueprint = Proj.Class;
@@ -57,7 +57,7 @@ EFiringState UTankAimingComponent::GetFiringState() const
 	return FiringState;
 }
 
-int UTankAimingComponent::GetRoundsLeft() const
+int32 UTankAimingComponent::GetRoundsLeft() const
 {
 	return RoundsLeft;
 }
