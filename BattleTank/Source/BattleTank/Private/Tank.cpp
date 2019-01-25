@@ -14,10 +14,17 @@ ATank::ATank()
 	PrimaryActorTick.bCanEverTick = false;
 }
 
+float ATank::GetHealthPercent() const
+{
+	return (float)CurrentHealth / (float)StartingHealth;
+}
+
 // Called when the game starts or when spawned
 void ATank::BeginPlay()
 {
-	Super::BeginPlay();	// Neded for blueprint to run
+	Super::BeginPlay();	// Needed for blueprint to run
+
+	CurrentHealth = StartingHealth;
 }
 
 float ATank::TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent, 
@@ -30,7 +37,7 @@ float ATank::TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEve
 
 	if (CurrentHealth <= 0)
 	{
-		UE_LOG(LogTemp, Warning, TEXT("tank died"));
+		OnDeath.Broadcast();
 	}
 
 	return DamageToApply;
