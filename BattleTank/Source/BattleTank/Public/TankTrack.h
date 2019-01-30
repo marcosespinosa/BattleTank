@@ -21,7 +21,7 @@ public:
 
 	// This is max force per track in newtons
 	UPROPERTY(EditDefaultsOnly)
-	float TrackMaxDrivingForce = 55000000;
+	float TrackMaxDrivingForce = 40000000;
 
 private:
 
@@ -29,13 +29,7 @@ private:
 
 	virtual void BeginPlay() override;
 
-	UFUNCTION()
-	void OnHit(UPrimitiveComponent * HitComponent, AActor * OtherActor, UPrimitiveComponent * OtherComponent,
-			FVector NormalImpulse, const FHitResult & Hit);
+	TArray<class ASprungWheel*> GetWheels() const;
 
-	void ApplySidewaysForce();
-
-	void DriveTrack();
-
-	float CurrentThrottle = 0;
+	void DriveTrack(float CurrentThrottle);
 };
